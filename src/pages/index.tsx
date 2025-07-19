@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect } from 'react'
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
     const script = document.createElement('script')
     script.src = 'https://www.paypal.com/sdk/js?client-id=ASunnmubagP9G5Dsrr0p9MLbLQt_Lsjc7sORbKDlAH4GFY8ErCX5zye9FEMKU405NL8VWQe8NhaO82Qj&currency=EUR'
     script.addEventListener('load', () => {
-      if (window.paypal) {
+      if (typeof window !== 'undefined' && window.paypal) {
         window.paypal.Buttons({
           style: {
             color: 'gold',
@@ -16,7 +17,7 @@ export default function Home() {
             label: 'pay',
             layout: 'vertical',
           },
-          createOrder: (data: any, actions: any) => {
+          createOrder: (data: Record<string, unknown>, actions: any) => {
             return actions.order.create({
               purchase_units: [{
                 amount: {
@@ -27,7 +28,7 @@ export default function Home() {
               }],
             })
           },
-          onApprove: (data: any, actions: any) => {
+          onApprove: (data: Record<string, unknown>, actions: any) => {
             return actions.order.capture().then((details: any) => {
               alert(`Merci ${details.payer.name.given_name}, votre paiement a été validé ✅`)
             })
@@ -67,28 +68,27 @@ export default function Home() {
         </ul>
 
         {/* Témoignages clients */}
-<div className="mt-12 w-full max-w-3xl">
-  <h2 className="text-2xl font-bold text-yellow-400 text-center mb-6">Ils nous ont fait confiance</h2>
-  <div className="grid gap-4">
-    <div className="bg-black border border-gray-700 p-4 rounded-xl text-left">
-      <p className="text-sm text-white">“J'ai vu une hausse immédiate de mes appels après l'optimisation. Un service pro et efficace.”</p>
-      <p className="text-yellow-300 mt-2 font-medium text-sm">— Julien D., Plombier à Lyon</p>
-    </div>
-    <div className="bg-black border border-gray-700 p-4 rounded-xl text-left">
-      <p className="text-sm text-white">“Simple, rapide, et super bien expliqué. Je recommande les yeux fermés !”</p>
-      <p className="text-yellow-300 mt-2 font-medium text-sm">— Sarah M., Coiffeuse à Paris</p>
-    </div>
-    <div className="bg-black border border-gray-700 p-4 rounded-xl text-left">
-      <p className="text-sm text-white">“Mon salon est passé de la 4e à la 1re position sur Google Maps en 2 semaines.”</p>
-      <p className="text-yellow-300 mt-2 font-medium text-sm">— Mehdi R., Gérant d’un barber shop</p>
-    </div>
-    <div className="bg-black border border-gray-700 p-4 rounded-xl text-left">
-      <p className="text-sm text-white">“Enfin une vraie solution pour booster ma visibilité sans me ruiner.”</p>
-      <p className="text-yellow-300 mt-2 font-medium text-sm">— Claire B., Photographe indépendante</p>
-    </div>
-  </div>
-</div>
-
+        <div className="mt-12 w-full max-w-3xl">
+          <h2 className="text-2xl font-bold text-yellow-400 text-center mb-6">Ils nous ont fait confiance</h2>
+          <div className="grid gap-4">
+            <div className="bg-black border border-gray-700 p-4 rounded-xl text-left">
+              <p className="text-sm text-white">“J’ai vu une hausse immédiate de mes appels après l’optimisation. Un service pro et efficace.”</p>
+              <p className="text-yellow-300 mt-2 font-medium text-sm">— Julien D., Plombier à Lyon</p>
+            </div>
+            <div className="bg-black border border-gray-700 p-4 rounded-xl text-left">
+              <p className="text-sm text-white">“Simple, rapide, et super bien expliqué. Je recommande les yeux fermés !”</p>
+              <p className="text-yellow-300 mt-2 font-medium text-sm">— Sarah M., Coiffeuse à Paris</p>
+            </div>
+            <div className="bg-black border border-gray-700 p-4 rounded-xl text-left">
+              <p className="text-sm text-white">“Mon salon est passé de la 4ᵉ à la 1ʳᵉ position sur Google Maps en 2 semaines.”</p>
+              <p className="text-yellow-300 mt-2 font-medium text-sm">— Mehdi R., Gérant d’un barber shop</p>
+            </div>
+            <div className="bg-black border border-gray-700 p-4 rounded-xl text-left">
+              <p className="text-sm text-white">“Enfin une vraie solution pour booster ma visibilité sans me ruiner.”</p>
+              <p className="text-yellow-300 mt-2 font-medium text-sm">— Claire B., Photographe indépendante</p>
+            </div>
+          </div>
+        </div>
 
         {/* Bouton PayPal */}
         <div id="paypal-button-container" className="mt-10" />
@@ -103,9 +103,9 @@ export default function Home() {
   <div className="flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto">
     <span className="mb-2 md:mb-0">© 2025 ReputIA — Tous droits réservés</span>
     <div className="space-x-4 text-center md:text-right">
-      <a href="/mentions-legales" className="hover:text-yellow-400">Mentions légales</a>
-      <a href="/cgu" className="hover:text-yellow-400">CGU</a>
-      <a href="/confidentialite" className="hover:text-yellow-400">Confidentialité</a>
+      <Link href="/mentions-legales" className="hover:text-yellow-400">Mentions légales</Link>
+      <Link href="/cgu" className="hover:text-yellow-400">CGU</Link>
+      <Link href="/confidentialite" className="hover:text-yellow-400">Confidentialité</Link>
       <span className="text-yellow-300">Contact : support@reputia.fr</span>
     </div>
   </div>

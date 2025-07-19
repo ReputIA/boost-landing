@@ -1,3 +1,7 @@
+'use client'
+
+import Link from 'next/link'
+
 export default function MentionsLegales() {
   return (
     <div className="min-h-screen bg-black text-white px-6 py-12">
@@ -15,7 +19,7 @@ export default function MentionsLegales() {
           Dénomination sociale : <strong>ReputIA</strong><br />
           Forme juridique : SASU<br />
           Responsable de la publication : Anthony RUIZ<br />
-          Adresse : 24 av marie curie 31600 seysses<br />
+          Adresse : 24 av Marie Curie, 31600 Seysses<br />
           Email : support@reputia.fr<br />
           Numéro SIRET : 989 088 604 XXXXX<br />
         </p>
@@ -25,7 +29,10 @@ export default function MentionsLegales() {
           Le site est hébergé par :<br />
           Nom : Vercel Inc.<br />
           Adresse : 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis<br />
-          Site : <a href="https://vercel.com" className="text-yellow-400 underline">https://vercel.com</a>
+          Site :{' '}
+          <a href="https://vercel.com" className="text-yellow-400 underline" target="_blank" rel="noopener noreferrer">
+            https://vercel.com
+          </a>
         </p>
 
         <h2 className="text-2xl font-semibold text-yellow-300 mt-8 mb-2">Propriété intellectuelle</h2>
@@ -38,15 +45,16 @@ export default function MentionsLegales() {
         <h2 className="text-2xl font-semibold text-yellow-300 mt-8 mb-2">Responsabilité</h2>
         <p className="mb-4">
           L’éditeur s’efforce de fournir des informations fiables et à jour, mais ne saurait être tenu
-          responsable d’erreurs, d’omissions ou de résultats obtenus par un mauvais usage de ces
-          informations.
+          responsable d’erreurs, d’omissions ou de résultats obtenus par un mauvais usage de ces informations.
         </p>
 
         <h2 className="text-2xl font-semibold text-yellow-300 mt-8 mb-2">Données personnelles</h2>
         <p className="mb-4">
           Les données personnelles éventuellement collectées sur ce site (via les formulaires de
-          contact ou paiement) sont traitées dans le respect du RGPD. Pour plus d’informations,
-          consultez notre page <a href="/confidentialite" className="text-yellow-400 underline">Politique de confidentialité</a>.
+          contact ou paiement) sont traitées dans le respect du RGPD. Pour plus d’informations, consultez notre page{' '}
+          <Link href="/confidentialite">
+            <span className="text-yellow-400 underline">Politique de confidentialité</span>
+          </Link>.
         </p>
 
         <h2 className="text-2xl font-semibold text-yellow-300 mt-8 mb-2">Cookies</h2>

@@ -1,3 +1,5 @@
+'use client'
+
 export default function Confidentialite() {
   return (
     <div className="min-h-screen bg-black text-white px-6 py-12">
@@ -15,9 +17,7 @@ export default function Confidentialite() {
         </p>
 
         <h2 className="text-2xl font-semibold text-yellow-300 mt-8 mb-2">2. Finalité de la collecte</h2>
-        <p className="mb-2">
-          Vos données sont utilisées uniquement pour :
-        </p>
+        <p className="mb-2">Vos données sont utilisées uniquement pour :</p>
         <ul className="list-disc list-inside pl-4 mb-4">
           <li>Traiter vos commandes</li>
           <li>Vous envoyer des informations liées à votre achat</li>
@@ -42,8 +42,8 @@ export default function Confidentialite() {
 
         <h2 className="text-2xl font-semibold text-yellow-300 mt-8 mb-2">6. Vos droits</h2>
         <p className="mb-4">
-          Conformément au RGPD, vous disposez d’un droit d’accès, de rectification, d’opposition, de limitation et de suppression de vos données. Pour exercer vos droits, contactez :
-          <span className="text-yellow-300"> support@reputia.fr</span>
+          Conformément au RGPD, vous disposez d’un droit d’accès, de rectification, d’opposition, de limitation et de suppression de vos données. Pour exercer vos droits, contactez :{' '}
+          <span className="text-yellow-300">support@reputia.fr</span>
         </p>
 
         <h2 className="text-2xl font-semibold text-yellow-300 mt-8 mb-2">7. Cookies</h2>
@@ -53,8 +53,8 @@ export default function Confidentialite() {
 
         <h2 className="text-2xl font-semibold text-yellow-300 mt-8 mb-2">8. Contact</h2>
         <p className="mb-4">
-          Pour toute question liée à cette politique de confidentialité, vous pouvez écrire à :
-          <span className="text-yellow-300"> support@reputia.fr</span>
+          Pour toute question liée à cette politique de confidentialité, vous pouvez écrire à :{' '}
+          <span className="text-yellow-300">support@reputia.fr</span>
         </p>
 
         <p className="mt-8 text-sm text-gray-400 italic">Dernière mise à jour : 19 juillet 2025</p>
