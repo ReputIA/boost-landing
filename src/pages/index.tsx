@@ -4,6 +4,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect } from 'react'
 
+declare global {
+  interface Window {
+    paypal: any
+  }
+}
+
 export default function Home() {
   useEffect(() => {
     const script = document.createElement('script')
@@ -17,7 +23,7 @@ export default function Home() {
             label: 'pay',
             layout: 'vertical',
           },
-          createOrder: (data: Record<string, unknown>, actions: any) => {
+          createOrder: (_data: unknown, actions: any) => {
             return actions.order.create({
               purchase_units: [{
                 amount: {
@@ -28,12 +34,12 @@ export default function Home() {
               }],
             })
           },
-          onApprove: (data: Record<string, unknown>, actions: any) => {
+          onApprove: (_data: unknown, actions: any) => {
             return actions.order.capture().then((details: any) => {
               alert(`Merci ${details.payer.name.given_name}, votre paiement a été validé ✅`)
             })
           },
-          onError: (err: any) => {
+          onError: (err: unknown) => {
             console.error('Erreur PayPal :', err)
             alert('Une erreur est survenue lors du paiement.')
           },
@@ -100,17 +106,16 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="w-full border-t border-gray-800 py-4 text-center text-sm text-gray-400 px-4">
-  <div className="flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto">
-    <span className="mb-2 md:mb-0">© 2025 ReputIA — Tous droits réservés</span>
-    <div className="space-x-4 text-center md:text-right">
-      <Link href="/mentions-legales" className="hover:text-yellow-400">Mentions légales</Link>
-      <Link href="/cgu" className="hover:text-yellow-400">CGU</Link>
-      <Link href="/confidentialite" className="hover:text-yellow-400">Confidentialité</Link>
-      <span className="text-yellow-300">Contact : support@reputia.fr</span>
-    </div>
-  </div>
-</footer>
-
+        <div className="flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto">
+          <span className="mb-2 md:mb-0">© 2025 ReputIA — Tous droits réservés</span>
+          <div className="space-x-4 text-center md:text-right">
+            <Link href="/mentions-legales" className="hover:text-yellow-400">Mentions légales</Link>
+            <Link href="/cgu" className="hover:text-yellow-400">CGU</Link>
+            <Link href="/confidentialite" className="hover:text-yellow-400">Confidentialité</Link>
+            <span className="text-yellow-300">Contact : support@reputia.fr</span>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
