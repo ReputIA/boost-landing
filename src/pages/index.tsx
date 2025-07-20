@@ -1,4 +1,3 @@
-
 'use client'
 
 import Image from 'next/image'
@@ -114,6 +113,21 @@ export default function Home() {
           </div>
         </div>
 
+        {/* SECTION COMMENT ÇA MARCHE */}
+        <div className="mt-12 w-full max-w-3xl">
+          <h2 className="text-2xl font-bold text-yellow-400 text-center mb-6">🛠️ Comment ça marche ?</h2>
+          <ol className="space-y-4 text-left text-base text-gray-300 px-4">
+            <li><strong>1.</strong> Cliquez sur le bouton de paiement sécurisé via PayPal.</li>
+            <li><strong>2.</strong> Effectuez le paiement avec une adresse e-mail valide.</li>
+            <li><strong>3.</strong> Sous 24h, notre équipe vous recontacte par e-mail pour débuter l’optimisation.</li>
+            <li><strong>4.</strong> Vous recevez un compte rendu détaillé et les actions mises en place.</li>
+          </ol>
+          <p className="mt-6 text-sm text-center text-gray-400">
+            Aucun compte à créer, service simple et rapide.
+          </p>
+        </div>
+
+        {/* BOUTON PAYPAL */}
         <div id="paypal-button-container" className="mt-10" />
         <p className="text-sm italic text-gray-400 mt-4">
           Paiement sécurisé par carte bancaire ou compte PayPal
