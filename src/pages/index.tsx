@@ -74,7 +74,7 @@ export default function Home() {
         </div>
         <h1 className="text-3xl md:text-5xl font-extrabold text-yellow-400">Optimisez votre fiche Google</h1>
         <p className="mt-4 text-lg md:text-xl">
-          Gagnez en visibilité locale avec notre offre unique à <span className="font-bold text-yellow-300">99 €</span>.
+          Gagnez en visibilité locale avec notre offre unique à <span className="font-bold text-yellow-300">99 € TTC</span>.
         </p>
 
         <ul className="mt-8 text-left space-y-3 text-lg">
