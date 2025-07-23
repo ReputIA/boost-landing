@@ -67,7 +67,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-black text-white">
+    <div className="min-h-screen flex flex-col justify-between bg-black text-white relative">
       <main className="flex flex-col items-center justify-center text-center px-4 py-12">
         <div className="mb-6">
           <Image src="/logo.png" alt="ReputIA Logo" width={80} height={80} />
@@ -134,7 +134,26 @@ export default function Home() {
         </p>
       </main>
 
-      <footer className="w-full border-t border-gray-800 py-4 text-center text-sm text-gray-400 px-4">
+      {/* ✅ BOUTON FLOTTANT WHATSAPP */}
+      <Link
+        href="https://wa.me/33674326186" // ← remplace ici par ton numéro
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition duration-200"
+        aria-label="Contact WhatsApp"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          width="28"
+          height="28"
+        >
+          <path d="M20.52 3.48a11.82 11.82 0 00-16.7 0 11.77 11.77 0 00-3.43 8.39 11.63 11.63 0 001.59 5.86l-1.63 5.95 6.12-1.6a11.76 11.76 0 0015.05-5.81 11.82 11.82 0 00-1-12.79zM12 21.26a9.3 9.3 0 01-4.74-1.29l-.34-.2-3.63.95.96-3.52-.22-.35a9.3 9.3 0 0114.5-11.08 9.36 9.36 0 01-6.53 15.49zm5-6.93c-.27-.13-1.6-.79-1.85-.88s-.43-.13-.61.14-.7.88-.85 1.06-.31.2-.58.07a7.7 7.7 0 01-3.77-3.3c-.29-.5.29-.46.82-1.54.09-.19 0-.36 0-.49s-.61-1.5-.84-2.06a.44.44 0 00-.63-.2c-.27.12-1.43.69-1.43 1.7a6.68 6.68 0 001.4 3.72 7.83 7.83 0 006.4 3.55c.45 0 .87 0 1.27-.06a2.05 2.05 0 001.3-.9c.2-.28.2-.5.13-.57s-.24-.18-.5-.3z" />
+        </svg>
+      </Link>
+
+      <footer className="w-full border-t border-gray-800 py-4 text-center text-sm text-gray-400 px-4 mt-6">
         <div className="flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto">
           <span className="mb-2 md:mb-0">© 2025 ReputIA — Tous droits réservés</span>
           <div className="space-x-4 text-center md:text-right">
